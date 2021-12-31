@@ -13,6 +13,12 @@ client.on("messageCreate", (message) => {
     if (message.content === "hi") {
         message.reply("```Hello, World```")
     }
+})
+
+const welcomeChannelId = "866451016869478411"
+
+client.on("guildMemberAdd", (member) => {
+    member.guild.channels.cache.get(welcomeChannelId).send(`<@${member.id}> Welcome to the server!`)
 });
 
 client.login(config.token);
